@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculadora com HTML e JS</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <center>
+            <h1>Calculadora Simples com HTML e JS</h1>
+        </center>
+        <br>
+        <input type='number' min='1' name='numero1'/>
+        <select id='operador'>
+            <option value='+'>+</option>
+            <option value='-'>-</option>
+            <option value='/'>/</option>
+            <option value='*'>*</option>
+        </select>
+        <input type='number' min='1' class='numero2'/>
+        <b id='resultado'>0</b>
+        <br></br>
+        <button onclick="pegardados()">Calcular</button>
+    </body>
+    <script src="main.js" type="text/JavaScript"></script>
+</html>
