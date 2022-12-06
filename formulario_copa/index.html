@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Trabalho Final</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="mascaras.js"></script>
+    </head>
+    <body class= bg-danger>
+        <div class='container mt-5 jumbotron bg-dark text-light'>
+            <div class='form-row'>
+                <div class='col-md-12'>
+                    <center>
+                      <h1>CADASTRO DE ANÚNCIOS</h1><br>
+                      <img src="logo.svg" title="logo"><br>
+                    </center><br>
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                          <div class="form-group col-md-3">
+                            <label for="validationname1">Primeiro Nome do Anunciante</label>
+                            <input type="text" class="form-control" maxlength="15" onkeypress="return lettersOnly(event);" id="nome" placeholder="example: Eduardo" required/>
+                            <div class="invalid-feedback">Por favor, digite um nome!</div>
+                          </div>
+                          <div class="form-group col-md-5">
+                            <label for="validationname1">Sobrenome do Anunciante</label>
+                            <input type="text" class="form-control" maxlength="50" id="nome" placeholder="example: Rossetti dos Santos Melo" required/>
+                            <div class="invalid-feedback">Por favor, digite um Sobrenome!</div>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="validationCustom03">@E-mail</label>
+                            <input type="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})$" class="form-control" id='email' placeholder="example: ermelo@unoeste.edu.br" required/>
+                            <div class="invalid-feedback">Por favor, digite o email no formato padrão!</div>
+                          </div>
+                          <div class="form-group col-md-7">
+                            <label for="validationname2">Nome do Anúncio</label>
+                            <input type="text" class="form-control" maxlength="50" id="anuncio" placeholder="example: Camiseta da Seleção Brasileira" required/>
+                            <div class="invalid-feedback">Por favor, digite um nome!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationCategoria">Categoria</label>
+                            <select class="form-control" id="Categoria" required>
+                                <option>Vestuário Esportivo</option>
+                                <option>Transporte</option>
+                                <option>Hospedagem</option>
+                                <option>Culinária</option>
+                                <option>Serviços Particulares</option>
+                                <option>Revenda de Ingressos</option>
+                                <option>Bebidas Clandestinas</option>
+                                <option>Objetos Esportivos</option>
+                            </select>
+                            <div class="valid-feedback">Okay!</div>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="validationvalor">Valor (R$)</label>
+                            <input id="valor" class="form-control" maxlength="13" placeholder="example: R$ 100,00" type="text" onkeypress="mMoeda()" required/>
+                            <div class="valid-feedback">Okay!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationTel1">Celular</label>
+                            <input type="text" class="form-control" maxlength="14" onkeyup="mascara('(##)#####-####',this,event)" id="celular" placeholder="example: (18)99645-4493" required/>
+                            <div class="invalid-feedback">Por favor, digite um celular!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationTel2">Telefone</label>
+                            <input type="text" class="form-control" onkeypress="mTel()" maxlength="13" id="telefone" placeholder="example: (18)3265-4493" required/>
+                            <div class="invalid-feedback">Por favor, digite um telefone válido!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationCPF">CPF</label>
+                            <input type="text" class="form-control" id="CPF" onkeypress="mCpf()" maxlength="14" onblur="validarCPF()" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="example: 472.290.598-36" required/>
+                            <div class="invalid-feedback">Por favor, digite o CPF no formato padrão!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationCPNJ">CNPJ:</label>
+                            <input type="text" class="form-control" id="CNPJ" placeholder="example: 99.999.999/9999-99" onkeyup="mascara('##.###.###/####-##',this,event)" required/>
+                            <div class="invalid-feedback">Por favor, digite o CNPJ no formato padrão!</div>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="validationDate">Data do Anúncio</label>
+                            <input type="date" class="form-control" id='data' required/>
+                            <div class="valid-feedback">Okay!</div>
+                          </div>
+                          <div class="form-group col-md-7">
+                            <label for="validationWebsite">WebSite</label>
+                            <input type="url" class="form-control" placeholder="example: https://www.google.com.br" id="website" required/>
+                            <div class="invalid-feedback">Por favor, copie aqui o link do website no formato padrão!</div>
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label for="validationCEP">CEP de Origem</label>
+                            <input type="text" class="form-control" onkeypress="mCEP()" maxlength="10" placeholder="example: 19600-000" pattern= "[0-9][0-9].[0-9][0-9][0-9]-[0-9][0-9][0-9]" required/>
+                            <div class="invalid-feedback">Por favor, digite um CEP válido!</div>
+                          </div>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                          <label class="form-check-label" for="invalidCheck">Li e Concordo com os termos e condições</label>
+                          <div class="invalid-feedback">Você deve concordar, antes de continuar.</div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+            </script>
+    </body>
+</html>
